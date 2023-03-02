@@ -3,32 +3,46 @@
     <meta charset="utf-8">
     <style>
 
+      @font-face {
+        font-family: 'Banthers';
+        src: url('../fonts/Swistblnk Banthers.ttf');
+      }
+
       :root {
         --hero_image_min_size: 10%;
-        --hero_image_max_size: 40%;
-        --hero_image_size: 40%;
+        --hero_image_max_size: 20%;
+        --hero_image_size: 20%;
 
         --social_media-color: dodgerblue;
 
         --foobar: 0%;
+
+        --page_width: 100px;
       }
 
       body {
         background-color:white;
         font-family: 'Arial';
+        /*font-family: 'Banthers';*/
         font-weight: lighter;
+
+        min-height: 100vh;
+        min-width: 1000px;
+        margin: 0 auto;
       }
 
       h1, h2, h3, h4, h5, h6, p {
-        font-family: 'Arial';
-        font-weight: lighter;
+        font-family: 'Banthers';
+        font-weight: 900;
+        /*font-family: 'Arial';*/
+        /*font-weight: lighter;*/
       }
 
       /* Navbar container */
       .navbar-main {
-        font-family: inherit;
-        font-size: 16px;
-        font-weight: normal;
+        font-family: 'Banthers';
+        font-size: 25px;
+        font-weight: 900;
         z-index: 9;
         overflow: hidden; 
         background-color: inherit;
@@ -68,7 +82,7 @@
         font-family: inherit;
         font-size: inherit;
         font-weight: inherit;
-        color: inherit;
+        color: rgb(85,85,85);
         padding: 0px 10px;
         text-decoration: none;
         display: inline-block;
@@ -166,12 +180,12 @@
       }
 
       .wrapper {
-        max-width: -webkit-calc(1000px - (30px * 2));
-        max-width: calc(1000px - (30px * 2));
+        max-width: -webkit-calc(1000px - (var(--page_width) * 2));
+        max-width: calc(1000px - (var(--page_width) * 2));
         margin-right: auto;
         margin-left: auto;
-        padding-right: 30px;
-        padding-left: 30px;
+        padding-right: var(--page_width);
+        padding-left: var(--page_width);
       }
 
       header {   
@@ -179,17 +193,18 @@
         text-align: center;
         /*padding: 10px 0px 25px 0px;*/
 
-        max-width: -webkit-calc(1000px - (30px * 2));
-        max-width: calc(1000px - (30px * 2));
+        max-width: -webkit-calc(1000px - (var(--page_width) * 2));
+        max-width: calc(1000px - (var(--page_width) * 2));
         margin-right: auto;
         margin-left: auto;
-        padding-right: 30px;
-        padding-left: 30px;
+        padding-right: var(--page_width);
+        padding-left: var(--page_width);
       }
 
       .header-grid-item {
-        margin-bottom: 15px;
-        padding-left: 15px;
+        margin-bottom: 30px;
+        /*padding-left: 15px;*/
+        padding-top: 15;
       }
 
       .header-grid-wrapper {
@@ -316,15 +331,19 @@
       .hero-text {
         text-align: center;
         position: absolute;
-        top: 50%;
-        left: 50%;
+        top: 55%;
+        left: 49%;
         transform: translate(-50%, -50%);
         color: white;
       }
 
+      .hero-text h1 {
+        font-size: 50;
+      }
+
       .content {
         padding-top: 2rem;
-        padding-bottom: 20rem;
+        padding-bottom: 12rem;
       }
 
       .content h1, 
@@ -337,11 +356,18 @@
       }
 
       .content p {
+        font-family: 'Arial';
+        font-weight: 100;
         text-align: left;
         color: rgb(85, 85, 85);
-        font-size: 14;
+        font-size: 16;
         line-height: 1.6;
       }
+
+      .content .padding {
+        width:350px;
+        padding: 15px 15px 15px 15px;
+        }
 
       .svg-icon {
         width: 16px;
@@ -482,6 +508,46 @@
           }
       }
 
+      .navi-list ul, li {
+        list-style-type: none;
+      }
+
+      .navi-list a {
+        font-family: 'Banthers';
+        font-size: 25px;
+        color: 875b56;
+        text-decoration: none;
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      .navi-list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 0;
+        margin-top: 35;
+        margin-bottom: 0px;
+      }
+
+      .navi-list li:not(.centered-logo) {
+        flex: 1 0 auto;
+        text-align: center;
+      }
+
+      .logo {
+        background: white;
+        color: white;
+        width: 220px;
+        height: 75px;
+      }
+
+      .logo-image {
+        position: absolute;
+        top: -15;
+      }
+
     </style>
     <script src="https://kit.fontawesome.com/7044913722.js" crossorigin="anonymous"></script>
   </head>
@@ -489,112 +555,76 @@
     <div class="page-container">
 
     <header>
-      <div class="header-grid-wrapper">
-          <div class="header-grid-item header-grid-logo">
-            <a href="https://jakekurtz.github.io/wanderland_eurasier/home/" style="float:left; margin-right:0px; padding:0px;">
-              <img alt="Home" src="../resources/images/ECC_logo.jpg" width = 100px>
-            </a>
-          </div>
-          <div class="header-grid-item header-grid-minor">
-            <div class="navbar-minor">
-              <a href="index.html">Contact</a>
-              <a href="index.html">Join</a>
-              <a href="index.html">Donate Now</a>
-              <a href="index.html">Log In</a>
-            </div>
-          </div>
-          <div class="header-grid-item header-grid-major">
-            <div class="navbar-main">
-              <div class="subnav">
-                  <button class="subnav-btn">The Eurasier</button>
-                  <div class="subnav-content">
-                      <a href="https://jakekurtz.github.io/wanderland_eurasier/history/">History</a>
-                      <a href="index.html">Breed Standard</a>
-                      <a href="index.html">Character</a>
-                      <a href="https://jakekurtz.github.io/wanderland_eurasier/galleries/">Gallery</a>
-                      <a href="index.html">Resources</a>
-                      <a href="index.html">Looking for a Puppy</a>
-                      <a href="index.html">FAQs</a>
-                  </div>
-              </div>
-              <div class="subnav">
-                  <button class="subnav-btn">The ECC</button>
-                  <div class="subnav-content">
-                      <a href="index.html">Club Info</a>
-                      <a href="index.html">News/Events</a>
-                      <a href="index.html">Mission Statement</a>
-                      <a href="index.html">Code of Ethics</a>
-                      <a href="index.html">Board of Directors</a>
-                      <a href="index.html">Policies</a>
-                      <a href="index.html">Contact</a>
-                      <a href="index.html">Links</a>
-                      <a href="index.html">Roll of Honor</a>
-                  </div>
-              </div>
-              <div class="subnav">
-                  <button class="subnav-btn">Breeding</button>
-                  <div class="subnav-content">
-                      <a href="index.html">ECC's Breeders</a>
-                      <a href="index.html">Philosophy</a>
-                      <a href="index.html">Selection</a>
-                      <a href="index.html">Data</a>
-                      <a href="index.html">Testing</a>
-                  </div>
-              </div>
-              <a href="index.html">Stud Dogs</a>
-              <div class="subnav">
-                  <button class="subnav-btn">Support Eurasiers</button>
-                  <div class="subnav-content">
-                      <a href="index.html">Donation</a>
-                      <a href="index.html">Membership</a>
-                      <a href="index.html">Rescue</a>
-                  </div>
-              </div>
-            </div>
-          </div>
-      </div>
+      <nav class="navi">
+        <ul class="navi-list">
+            <li><a href="https://jakekurtz.github.io/wanderland_eurasier/home/">Home</a></li>
+            <li><a href="https://jakekurtz.github.io/wanderland_eurasier/about/">About</a></li>
+            <li><a href="https://jakekurtz.github.io/wanderland_eurasier/our_dogs/">Our Dogs</a></li>
+            <li class="centered-logo">
+              <a href="https://jakekurtz.github.io/wanderland_eurasier/home/">
+                  <div class="logo"></div>
+                  <div class="logo-image"><img alt="Home" src="../resources/images/logo.png" width = 220px></div>
+              </a>
+            </li>
+            <li><a href="https://jakekurtz.github.io/wanderland_eurasier/galleries/">Gallery</a></li>
+            <li><a href="#">Something</a></li>
+            <li><a href="https://jakekurtz.github.io/wanderland_eurasier/links/">Links</a></li>
+        </ul>
+      </nav>
     </header>
 
     <div class="hero-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url(../resources/images/headers/maple-6.jpg)">
       <div class="hero-text">
-        <h1 style="padding-top: 200px; padding-bottom: var(--foobar); font-size: 45;">Introduction to the Eurasier Club of Canada</h1>
+        <h1 style="padding-top: 100px; padding-bottom: var(--foobar);">welcome to WanderLand EurasierS</h1>
       </div>
     </div> 
     
     <div class="wrapper">
       <div class="content">
-        <!--<h1 style="text-align: center;">Introduction to the Eurasier Club of Canada</h1>-->
-        <p>Welcome to the Eurasier Club of Canada (ECC). The Eurasier Club of Canada was founded in 2005, in order to help protect the unique and wonderful qualities of the Eurasier, and to ensure its future. Because the Eurasier is a relatively young breed that is becoming more popular, the challenge is to remain true to the breed standard that has been set, and to live up to the vision of the breed founder, Julius Wipfel. Only through breeder and owner education, and the promotion of ethical and quality breeding practices and responsible dog ownership, will we be able to safeguard the Eurasier and help preserve its original characteristics.</p>
+        <!--<h1 style="text-align: center;">welcome to WanderLand EurasierS</h1>-->
+        <style>
+    .hero-image {
+        /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
 
-<p>The Eurasier Club of Canada (ECC) is committed to maintaining the high quality and standard of breeding established by the German Eurasier clubs of origin - of following their example, in order to ensure the health and beauty of this breed for many generations to come.</p>
+        /* Set a specific height */
+        height: 100%;
 
-<p>It was the firm desire of breed founder Julius Wipfel that the Eurasier be raised and cared for within the family. Even today within the original German clubs, the Eurasier is bred solely by hobby breeders who are closely supervised and guided by knowledgeable and experienced people. A comprehensive database that includes health information is used to help determine sound mating choices.</p>
+        /* Position and center the image to scale nicely on all screens */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        z-index: -1;
+        font-weight: 900;
+    }
 
-<p>Our ‘ECC Approved Breeders’ endeavour to remain in close contact with their puppy owners and are always available for questions concerning the well being of their offspring.</p>
+    .hero-text {
+        text-align: center;
+        position: absolute;
+        top: 20%;
+        left: 49%;
+        transform: translate(-50%, -50%);
+        color: white;
+    }
 
-<p>Resisting the temptation of breeding as a business is a part of the Eurasier philosophy.</p>
+    .hero-text h1 {
+        font-size: 70;
+        min-width: 700px;
+        max-width: 700px;
+    }
 
-<p>The Eurasier is relatively new to North America but is quite popular in its native Germany. It is a medium-sized spitz dog, with a thick wooly undercoat, soft, medium-length outer coat in various colors, and a bushy tail that it carries over its back. It has dark, expressive almond shaped eyes, and can have a pink, blue-black, or spotted tongue.</p>
+    .content {
+        padding: 0;
+    }
+</style>
 
-<p>Eurasiers were given official breed status by the Canadian Kennel Club (CKC) on June 13, 1995.</p>
-
-<p>The Eurasier Club of Canada was officially accredited by the CKC, as the national breed club in Canada for the Eurasier breed, on April 5, 2007.</p>
-
-<p>For information on the breed or to become a member, please contact the Eurasier Club of Canada at:.
-info@eurasiers.ca</p>
-
-<p>You may also download our membership form here:</p>
-
-<p>ECC Membership Application</p>
-
-<p>Some of the files on this site require Acrobat Reader to open. You can download it free by clicking on the icon below.</p>
 
       </div>
     </div>
 
     <footer class="site-footer h-card">
       <div class="wrapper">
-        <h3 class="footer-heading">Eurasier Club of Canada</h3>
+        <h3 class="footer-heading">Wanderland Eurasier</h3>
         <div class="footer-col-wrapper">
 
           <div class="footer-col footer-col-2">
@@ -608,7 +638,7 @@ info@eurasiers.ca</p>
                 </a>
               </li>
               <li>
-                <a href="https://www.instagram.com/eurasiercanada/?hl=en">
+                <a href="https://www.instagram.com/wanderland_eurasiers/">
                   <svg class="svg-icon">
                     <use xlink:href="/assets/minima-social-icons.svg#instagram"></use>
                     <span class="username">Visit our Instagram</span>
@@ -620,16 +650,16 @@ info@eurasiers.ca</p>
 
           <div class="footer-col footer-col-1">
             <ul class="contact-list">
-              <li class="p-name">John Smith</li>
+              <li class="p-name">Jame and Tracey</li>
               <li>
-                <a class="u-email" href="mailto:your-email_0@example.com">johnsmith@example.com</a>
+                <a class="u-email" href="mailto:your-email_0@example.com">wanderlandeurasiers@gmail.ca</a>
               </li>
             </ul>
           </div>
 
           <div class="footer-col footer-col-3">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             </p>
           </div>
 
