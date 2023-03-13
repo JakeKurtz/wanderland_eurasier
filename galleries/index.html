@@ -13,7 +13,7 @@
         --hero_image_max_size: 20%;
         --hero_image_size: 20%;
 
-        --social_media-color: dodgerblue;
+        --social_media-color: #89b6e1/*dodgerblue*/;
 
         --foobar: 0%;
 
@@ -263,9 +263,7 @@
       .footer-heading {
         font-size: 18px;
         margin-bottom: 15px;
-        /*max-width: 150;*/
         line-height: 1.6;
-        padding-top: 10px;
         color: inherit;
       }
 
@@ -313,11 +311,15 @@
         padding-top: 10px;
       }
 
+      .contact-list li + li {
+        padding-top: 10px;
+      }
+
       .hero-image {
         /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
 
         /* Set a specific height */
-        height: var(--hero_image_size);
+        height: 300px;/*var(--hero_image_size);*/
 
         /* Position and center the image to scale nicely on all screens */
         background-position: center;
@@ -373,8 +375,10 @@
         width: 16px;
         height: 16px;
         display: inline-block;
-        fill: var(--social_media-color);
-        padding-right: 10px;
+        /*fill: var(--social_media-color);*/
+        fill: #fff;
+        /*padding-right: 10px;*/
+        padding: 0px 5px 0px 10px;
         vertical-align: text-top;
       }
 
@@ -526,9 +530,9 @@
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        padding: 0;
         margin-top: 35;
         margin-bottom: 0px;
+        padding: 0 0 30 0;
       }
 
       .navi-list li:not(.centered-logo) {
@@ -546,6 +550,30 @@
       .logo-image {
         position: absolute;
         top: -15;
+      }
+
+      .footer ul {
+        padding: 0px;
+        margin: 10px;
+      }
+
+      .footer ul li {
+          display:inline-block;
+          border-left:2px solid;
+          padding: 0px 10px 0px 10px;
+          color: #515151;
+      }
+      .footer ul li:first-child {
+          border-left:none;
+      }
+
+      .footer li a {
+        color: white;
+        text-decoration: none;
+      }
+
+      .footer li h3 {
+        color: white;
       }
 
     </style>
@@ -652,27 +680,60 @@
 
     <footer class="site-footer h-card">
       <div class="wrapper">
+        <div class="footer">
+          <!--<h3 class="footer-heading">Wanderland Eurasier</h3>-->
+          <ul>
+
+            <li><h3 class="footer-heading">Wanderland Eurasier</h3></li>
+
+            <li>
+              <a href="https://www.facebook.com/eurasierclubofcanada/">
+                <svg class="svg-icon">
+                  <use xlink:href="../assets/minima-social-icons.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://www.instagram.com/wanderland_eurasiers/">
+                <svg class="svg-icon">
+                  <use xlink:href="../assets/minima-social-icons.svg#instagram"></use>
+                </svg>
+              </a>
+            </li>
+
+            <li><a class="u-email" href="mailto:your-email_0@example.com">wanderlandeurasiers@gmail.ca</a></li>
+
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <!--
+    <footer class="site-footer h-card">
+      <div class="wrapper">
         <h3 class="footer-heading">Wanderland Eurasier</h3>
         <div class="footer-col-wrapper">
 
           <div class="footer-col footer-col-2">
             <ul class="social-media-list">
+              
               <li>
                 <a href="https://www.facebook.com/eurasierclubofcanada/">
                   <svg class="svg-icon">
-                    <use xlink:href="/assets/minima-social-icons.svg#facebook"></use>
-                    <span class="username">Visit our Facebook</span>
+                    <use xlink:href="../assets/minima-social-icons.svg#facebook"></use>
                   </svg>
                 </a>
               </li>
+
               <li>
                 <a href="https://www.instagram.com/wanderland_eurasiers/">
                   <svg class="svg-icon">
-                    <use xlink:href="/assets/minima-social-icons.svg#instagram"></use>
-                    <span class="username">Visit our Instagram</span>
+                    <use xlink:href="../assets/minima-social-icons.svg#instagram"></use>
                   </svg>
                 </a>
               </li>
+
             </ul>
           </div>
 
@@ -684,17 +745,10 @@
               </li>
             </ul>
           </div>
-
-          <div class="footer-col footer-col-3">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            </p>
-          </div>
-
         </div>  
       </div>
     </footer>
-
+    -->
     </div>
 
 <script>
