@@ -18,9 +18,11 @@
         --foobar: 0%;
 
         --page_width: 100px;
+        --footer_height: auto;
       }
 
       body {
+        position: relative;
         background-color:white;
         font-family: 'Arial';
         /*font-family: 'Banthers';*/
@@ -179,13 +181,8 @@
         min-height: 100vh;
       }
 
-      .wrapper {
-        max-width: -webkit-calc(1000px - (var(--page_width) * 2));
-        max-width: calc(1000px - (var(--page_width) * 2));
-        margin-right: auto;
-        margin-left: auto;
-        padding-right: var(--page_width);
-        padding-left: var(--page_width);
+      .content-wrap {
+        padding-bottom: var(--footer_height);            /* Footer height */
       }
 
       header {   
@@ -239,9 +236,16 @@
         color: white;
         background-color: #2d2d2d;
         position: absolute;
-        bottom: 0;
+
+        position:fixed;
+        bottom:0;
+        left:0;
+
         width: 100%;
-        /*height: 18rem;*/
+        height: var(--footer_height);            /* Footer height */
+
+        z-index: 100;
+        min-width: 1000px;
       }
 
       footer h1, 
@@ -260,44 +264,28 @@
         line-height: 1.6;
       }
 
-      .footer-heading {
-        font-size: 18px;
-        margin-bottom: 15px;
-        line-height: 1.6;
-        color: inherit;
+      footer ul {
+        padding: 0px;
+        margin: 0px;
       }
 
-      .footer-col {
-        float: left;
-        margin-bottom: 15px;
-        padding-left: 15px;
+      footer ul li {
+          display:inline-block;
+          border-left:2px solid;
+          padding: 0px 10px 0px 10px;
+          color: #515151;
+      }
+      footer ul li:first-child {
+          border-left:none;
       }
 
-      .footer-col-wrapper {
-        font-size: 15px;
-        color: inherit;
-        margin-left: -15px;
+      footer li a {
+        color: white;
+        text-decoration: none;
       }
 
-      .footer-col-1 {
-        width: -webkit-calc(30% - (30px / 2));
-        width: calc(30% - (30px / 2));
-      }
-
-      .footer-col-2 {
-        width: -webkit-calc(30% - (30px / 2));
-        width: calc(30% - (30px / 2));
-      }
-
-      .footer-col-3 {
-        width: -webkit-calc(40% - (30px / 2));
-        width: calc(40% - (30px / 2));
-      }
-
-      .footer-col-wrapper::after, .wrapper::after {
-        content: "";
-        display: table;
-        clear: both;
+      footer li h3 {
+        color: white;
       }
 
       .contact-list, .social-media-list {
@@ -334,7 +322,7 @@
         text-align: center;
         position: absolute;
         top: 55%;
-        left: 49%;
+        left: 50%;
         transform: translate(-50%, -50%);
         color: white;
       }
@@ -345,7 +333,12 @@
 
       .content {
         padding-top: 2rem;
-        padding-bottom: 12rem;
+        max-width: -webkit-calc(1000px - (var(--page_width) * 2));
+        max-width: calc(1000px - (var(--page_width) * 2));
+        margin-right: auto;
+        margin-left: auto;
+        padding-right: var(--page_width);
+        padding-left: var(--page_width);
       }
 
       .content h1, 
@@ -512,8 +505,15 @@
           }
       }
 
+      .navi {
+        width: 100%;
+        overflow: auto;
+        margin-top: 1.5rem;
+      }
+
       .navi-list ul, li {
         list-style-type: none;
+        
       }
 
       .navi-list a {
@@ -529,15 +529,13 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 100%;
         margin-top: 35;
-        margin-bottom: 0px;
-        padding: 0 0 30 0;
+        margin-bottom: 1.5rem;
+
       }
 
       .navi-list li:not(.centered-logo) {
         flex: 1 0 auto;
-        text-align: center;
       }
 
       .logo {
@@ -552,65 +550,38 @@
         top: -15;
       }
 
-      .footer ul {
-        padding: 0px;
-        margin: 10px;
-      }
+  </style>
+  <script src="https://kit.fontawesome.com/7044913722.js" crossorigin="anonymous"></script>
 
-      .footer ul li {
-          display:inline-block;
-          border-left:2px solid;
-          padding: 0px 10px 0px 10px;
-          color: #515151;
-      }
-      .footer ul li:first-child {
-          border-left:none;
-      }
-
-      .footer li a {
-        color: white;
-        text-decoration: none;
-      }
-
-      .footer li h3 {
-        color: white;
-      }
-
-    </style>
-    <script src="https://kit.fontawesome.com/7044913722.js" crossorigin="anonymous"></script>
   </head>
+
   <body>
     <div class="page-container">
+      <div class="content-wrap">
+        <header>
+          <nav class="navi">
+            <ul class="navi-list">
+                <li><a href="https://jakekurtz.github.io/wanderland_eurasier/home/">Home</a></li>
+                <li><a href="https://jakekurtz.github.io/wanderland_eurasier/about/">About</a></li>
+                <li><a href="https://jakekurtz.github.io/wanderland_eurasier/our_dogs/">Our Dogs</a></li>
+                <li class="centered-logo">
+                  <a href="https://jakekurtz.github.io/wanderland_eurasier/home/">
+                      <div class="logo"></div>
+                      <div class="logo-image"><img alt="Home" src="../resources/images/logo.png" width = 220px></div>
+                  </a>
+                </li>
+                <li><a href="https://jakekurtz.github.io/wanderland_eurasier/galleries/">Gallery</a></li>
+                <li><a href="#">Something</a></li>
+                <li><a href="https://jakekurtz.github.io/wanderland_eurasier/links/">Links</a></li>
+            </ul>
+          </nav>
+        </header>
 
-    <header>
-      <nav class="navi">
-        <ul class="navi-list">
-            <li><a href="https://jakekurtz.github.io/wanderland_eurasier/home/">Home</a></li>
-            <li><a href="https://jakekurtz.github.io/wanderland_eurasier/about/">About</a></li>
-            <li><a href="https://jakekurtz.github.io/wanderland_eurasier/our_dogs/">Our Dogs</a></li>
-            <li class="centered-logo">
-              <a href="https://jakekurtz.github.io/wanderland_eurasier/home/">
-                  <div class="logo"></div>
-                  <div class="logo-image"><img alt="Home" src="../resources/images/logo.png" width = 220px></div>
-              </a>
-            </li>
-            <li><a href="https://jakekurtz.github.io/wanderland_eurasier/galleries/">Gallery</a></li>
-            <li><a href="#">Something</a></li>
-            <li><a href="https://jakekurtz.github.io/wanderland_eurasier/links/">Links</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <div class="hero-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url(../resources/images/headers/DSC05599.jpg)">
-      <div class="hero-text">
-        <h1 style="padding-top: 100px; padding-bottom: var(--foobar);">Gallery 4</h1>
-      </div>
-    </div> 
-    
-    <div class="wrapper">
-      <div class="content">
-        <!--<h1 style="text-align: center;">Gallery 4</h1>-->
-        <script src="../spotlight.bundle.js"></script>
+        <div class="hero-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url(../resources/images/headers/DSC05599.jpg)">
+          <div class="hero-text"><h1>Gallery 4</h1></div>
+        </div> 
+        
+        <div class="content"><script src="../spotlight.bundle.js"></script>
 
 
 
@@ -806,120 +777,68 @@
     </p>
 </div>
 
-
+</div>
       </div>
+
+      <footer>
+        <ul>
+          <li><h3 class="footer-heading">Wanderland Eurasier</h3></li>
+          <li>
+            <a href="https://www.facebook.com/eurasierclubofcanada/">
+              <svg class="svg-icon">
+                <use xlink:href="../assets/minima-social-icons.svg#facebook"></use>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/wanderland_eurasiers/">
+              <svg class="svg-icon">
+                <use xlink:href="../assets/minima-social-icons.svg#instagram"></use>
+              </svg>
+            </a>
+          </li>
+          <li><a class="u-email" href="mailto:your-email_0@example.com">wanderlandeurasiers@gmail.ca</a></li>
+        </ul>
+      </footer>
     </div>
 
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <div class="footer">
-          <!--<h3 class="footer-heading">Wanderland Eurasier</h3>-->
-          <ul>
+    <script>
+        const percentLabel = document.querySelector("#percent");
+        const originalTitle = document.title;
 
-            <li><h3 class="footer-heading">Wanderland Eurasier</h3></li>
+        function clamp(val, min, max) 
+        {
+          if (val <= min) return min;
+          else if (val >= max) return max;
+          else return val;
+        }
 
-            <li>
-              <a href="https://www.facebook.com/eurasierclubofcanada/">
-                <svg class="svg-icon">
-                  <use xlink:href="../assets/minima-social-icons.svg#facebook"></use>
-                </svg>
-              </a>
-            </li>
+        function lerp(a, b, t)
+        {
+          return a + t *(b-a);
+        }
 
-            <li>
-              <a href="https://www.instagram.com/wanderland_eurasiers/">
-                <svg class="svg-icon">
-                  <use xlink:href="../assets/minima-social-icons.svg#instagram"></use>
-                </svg>
-              </a>
-            </li>
+        window.addEventListener("scroll", () => {
 
-            <li><a class="u-email" href="mailto:your-email_0@example.com">wanderlandeurasiers@gmail.ca</a></li>
+          var r = document.querySelector(':root');
+          var rs = getComputedStyle(r);
 
-          </ul>
-        </div>
-      </div>
-    </footer>
+          let scrollTop = window.scrollY;
+          let docHeight = document.body.offsetHeight;
+          let winHeight = window.innerHeight;
+          var scrollPercent = scrollTop / (docHeight - winHeight);
 
-    <!--
-    <footer class="site-footer h-card">
-      <div class="wrapper">
-        <h3 class="footer-heading">Wanderland Eurasier</h3>
-        <div class="footer-col-wrapper">
+          var minSize = parseFloat(rs.getPropertyValue('--hero_image_min_size'));
+          var maxSize = parseFloat(rs.getPropertyValue('--hero_image_max_size'));
 
-          <div class="footer-col footer-col-2">
-            <ul class="social-media-list">
-              
-              <li>
-                <a href="https://www.facebook.com/eurasierclubofcanada/">
-                  <svg class="svg-icon">
-                    <use xlink:href="../assets/minima-social-icons.svg#facebook"></use>
-                  </svg>
-                </a>
-              </li>
-
-              <li>
-                <a href="https://www.instagram.com/wanderland_eurasiers/">
-                  <svg class="svg-icon">
-                    <use xlink:href="../assets/minima-social-icons.svg#instagram"></use>
-                  </svg>
-                </a>
-              </li>
-
-            </ul>
-          </div>
-
-          <div class="footer-col footer-col-1">
-            <ul class="contact-list">
-              <li class="p-name">Jame and Tracey</li>
-              <li>
-                <a class="u-email" href="mailto:your-email_0@example.com">wanderlandeurasiers@gmail.ca</a>
-              </li>
-            </ul>
-          </div>
-        </div>  
-      </div>
-    </footer>
-    -->
-    </div>
-
-<script>
-    const percentLabel = document.querySelector("#percent");
-    const originalTitle = document.title;
-
-    function clamp(val, min, max) 
-    {
-      if (val <= min) return min;
-      else if (val >= max) return max;
-      else return val;
-    }
-
-    function lerp(a, b, t)
-    {
-      return a + t *(b-a);
-    }
-
-    window.addEventListener("scroll", () => {
-
-      var r = document.querySelector(':root');
-      var rs = getComputedStyle(r);
-
-      let scrollTop = window.scrollY;
-      let docHeight = document.body.offsetHeight;
-      let winHeight = window.innerHeight;
-      var scrollPercent = scrollTop / (docHeight - winHeight);
-
-      var minSize = parseFloat(rs.getPropertyValue('--hero_image_min_size'));
-      var maxSize = parseFloat(rs.getPropertyValue('--hero_image_max_size'));
-
-      let imageSize = lerp(maxSize, minSize, clamp(scrollTop / 500, 0, 1));
-      
-      if (scrollPercent < 1 && scrollPercent > 0) {
-        r.style.setProperty('--hero_image_size', imageSize+'%');
-        r.style.setProperty('--foobar', (maxSize - imageSize)*10);
-      }
-    });
-</script>
-
+          let imageSize = lerp(maxSize, minSize, clamp(scrollTop / 500, 0, 1));
+          
+          if (scrollPercent < 1 && scrollPercent > 0) {
+            r.style.setProperty('--hero_image_size', imageSize+'%');
+            r.style.setProperty('--foobar', (maxSize - imageSize)*10);
+          }
+        });
+    </script>
   </body>
+
 </html>
